@@ -7,6 +7,7 @@ RUN if [ -f "/tmp/conda-tmp/environment.yml" ]; then umask 0002 && /opt/conda/bi
     && rm -rf /tmp/conda-tmp
 
 # [Optional] Uncomment this section to install additional OS packages.
-# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#     && apt-get -y install --no-install-recommends <your-package-list-here>
-RUN conda install -y seaborn pandas numpy
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends \
+    texlive-xetex texlive-fonts-recommended texlive-plain-generic pandoc \
+    && conda install -y seaborn pandas numpy matplotlib pyarrow nbconvert
